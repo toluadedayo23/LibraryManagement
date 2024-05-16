@@ -29,7 +29,7 @@ public class WebSecurityUtil {
                 .role(principal.getAuthorities()
                         .stream().map(authority -> Role.valueOf(authority.getAuthority()))
                         .findFirst()
-                        .orElse(Role.PATRON)
+                        .orElse(Role.LIBRARIAN)
                 ).build()
         );
     }
