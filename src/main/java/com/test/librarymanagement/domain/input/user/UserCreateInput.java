@@ -14,10 +14,6 @@ import lombok.experimental.SuperBuilder;
 public class UserCreateInput {
 
     @NotNull
-    @Size(min = 4, max = 15, message = "Username cannot be less than 4 or more than 15 characters")
-    private String username;
-
-    @NotNull
     @Size(min = 8, max = 30, message = "Email cannot be less than 8 or more than 30 characters")
     private String email;
 
