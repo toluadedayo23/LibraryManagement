@@ -15,4 +15,8 @@ public interface TokenRepository extends JpaRepository<Token, Long> {
     @Modifying
     @Transactional
     void deleteByAccessToken(String token);
+
+    @Modifying
+    @Transactional
+    void deleteByRefreshToken(String token);
 }
