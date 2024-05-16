@@ -1,0 +1,36 @@
+spring:
+  profiles:
+    active: local
+  datasource:
+    initialize: true
+
+    hikari:
+      maximum-pool-size: 1
+
+  sql:
+    init:
+      mode: always
+
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        globally_quoted_identifiers: true
+
+librarymanagement:
+  logging:
+    enabled: true
+    excluded-paths: "/v3/api-docs, /v3/api-docs/*, /swagger-ui/*"
+
+  swagger:
+    title: librarymanagement Version 1.0.0 API Documentation
+    description: librarymanagement Version 1.0.0 API Documentation
+
+  security:
+    jwt:
+      secret-key: 404E635266556A586E3272357538782IJE12F4428472B4B6250645367566B5990
+      expiration: 3600000 # an hour
+      refresh-token:
+        expiration: 7200000 # 2 hours
