@@ -1,9 +1,7 @@
 package com.test.librarymanagement.domain.data;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.test.librarymanagement.domain.enums.BookStatus;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -33,6 +31,9 @@ public class Book {
     private String ISBN;
 
     private Integer edition;
+
+    @Enumerated(EnumType.STRING)
+    private BookStatus bookStatus;
 
     @CreationTimestamp
     private LocalDateTime createdAt;
