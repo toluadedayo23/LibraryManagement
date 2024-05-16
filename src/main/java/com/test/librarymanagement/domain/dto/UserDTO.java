@@ -18,12 +18,8 @@ public class UserDTO {
 
     private String email;
 
-    private String password;
-
     private Boolean enabled;
 
     private Role role;
-
-    private String address;
 
 }
