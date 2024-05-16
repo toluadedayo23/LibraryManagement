@@ -9,7 +9,5 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 public class UserUpdateInput {
 
-    private String username;
-
     private String email;
 }
