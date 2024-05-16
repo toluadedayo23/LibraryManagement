@@ -1,5 +1,6 @@
 package com.test.librarymanagement.domain.dto;
 
+import com.test.librarymanagement.domain.enums.BookStatus;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
@@ -20,4 +21,6 @@ public class BookDTO {
     private String ISBN;
 
     private Integer edition;
+
+    private BookStatus bookStatus;
 }
