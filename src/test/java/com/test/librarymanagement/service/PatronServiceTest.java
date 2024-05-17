@@ -46,14 +46,14 @@ class PatronServiceTest {
         PatronCreateInput input = PatronCreateInput.builder()
                 .firstName("first")
                 .lastName("Last")
-                .Address("Lagos 1")
+                .address("Lagos 1")
                 .phonenumber("08089765376")
                 .build();
 
         Patron patron = Patron.builder()
                 .firstName("first")
                 .lastName("Last")
-                .Address("Lagos 1")
+                .address("Lagos 1")
                 .phonenumber("08089765376")
                 .build();
 
@@ -61,7 +61,7 @@ class PatronServiceTest {
                 .id(2L)
                 .firstName("first")
                 .lastName("Last")
-                .Address("Lagos 1")
+                .address("Lagos 1")
                 .phonenumber("08089765376")
                 .build();
 
@@ -93,7 +93,7 @@ class PatronServiceTest {
         Patron patron = Patron.builder()
                 .firstName("first")
                 .lastName("Last")
-                .Address("Lagos 1")
+                .address("Lagos 1")
                 .phonenumber("08089765376")
                 .build();
 
@@ -101,7 +101,7 @@ class PatronServiceTest {
                 .id(2L)
                 .firstName("first")
                 .lastName("Last")
-                .Address("Lagos 1")
+                .address("Lagos 1")
                 .phonenumber("08089765376")
                 .build();
 
@@ -129,7 +129,7 @@ class PatronServiceTest {
                 .id(1L)
                 .firstName("first")
                 .lastName("Last")
-                .Address("Lagos 1")
+                .address("Lagos 1")
                 .phonenumber("08089765376")
                 .build();
 
@@ -137,7 +137,7 @@ class PatronServiceTest {
                 .id(2L)
                 .firstName("first2")
                 .lastName("Last2")
-                .Address("Lagos 2")
+                .address("Lagos 2")
                 .phonenumber("08089765377")
                 .build();
 
@@ -145,7 +145,7 @@ class PatronServiceTest {
                 .id(3L)
                 .firstName("first3")
                 .lastName("Last3")
-                .Address("Lagos 3")
+                .address("Lagos 3")
                 .phonenumber("08089765378")
                 .build();
         List<Patron> patrons = List.of(patron, patron2, patron3);
@@ -155,7 +155,7 @@ class PatronServiceTest {
                 .id(1L)
                 .firstName("first")
                 .lastName("Last")
-                .Address("Lagos 1")
+                .address("Lagos 1")
                 .phonenumber("08089765376")
                 .build();
 
@@ -163,7 +163,7 @@ class PatronServiceTest {
                 .id(2L)
                 .firstName("first2")
                 .lastName("Last2")
-                .Address("Lagos 2")
+                .address("Lagos 2")
                 .phonenumber("08089765377")
                 .build();
 
@@ -171,7 +171,7 @@ class PatronServiceTest {
                 .id(3L)
                 .firstName("first3")
                 .lastName("Last3")
-                .Address("Lagos 3")
+                .address("Lagos 3")
                 .phonenumber("08089765378")
                 .build();
         PageableDTO<PatronDTO> dtoPageResult = new PageableDTO<>(convertListToPage(List.of(dto, dto2, dto3), pageable));
@@ -199,7 +199,7 @@ class PatronServiceTest {
         PatronUpdateInput updateInput = PatronUpdateInput.builder()
                 .firstName("first")
                 .lastName("Last")
-                .Address("Lagos 1")
+                .address("Lagos 1")
                 .phonenumber("08089765370")
                 .build();
 
@@ -207,7 +207,7 @@ class PatronServiceTest {
                 .id(2L)
                 .firstName("first2")
                 .lastName("Last2")
-                .Address("Lagos 2")
+                .address("Lagos 2")
                 .phonenumber("08089765377")
                 .build();
 
@@ -215,7 +215,7 @@ class PatronServiceTest {
                 .id(1L)
                 .firstName("first")
                 .lastName("Last")
-                .Address("Lagos 1")
+                .address("Lagos 1")
                 .phonenumber("08089765370")
                 .build();
 
