@@ -9,12 +9,15 @@ import com.test.librarymanagement.domain.input.book.BookUpdateInput;
 import com.test.librarymanagement.mapper.BookMapper;
 import com.test.librarymanagement.repository.BookRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.NoSuchElementException;
+
+import static com.test.librarymanagement.config.cache.CacheConfig.BOOK_PAGE_RESULT_CACHE;
 
 @Service
 @AllArgsConstructor
@@ -42,6 +45,7 @@ public class BookService {
         return bookMapper.mapBookToDTO(book);
     }
 
+    @Cacheable(value = BOOK_PAGE_RESULT_CACHE, key = "'books'")
     public PageableDTO<BookDTO> getBooks(int page, int size){
         if (size <= 0) {
             size = 100;
