@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @AllArgsConstructor
 @RequestMapping("api/borrow/")
-@PreAuthorize("hasAuthority('LIBRARIAN')")
+@PreAuthorize("hasAuthority('ROLE_LIBRARIAN')")
 public class BorrowBookController {
 
     private final BorrowingService borrowingService;
