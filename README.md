@@ -42,3 +42,5 @@ Every request in the application except endpoints in the authentication controll
 it can be accessed.
 
 Endpoints request are group in the controllers according to their actions and domain Objects.
+
+The **GET /api/books** is cached to improve system performance.
