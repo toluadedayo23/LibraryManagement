@@ -22,8 +22,6 @@ public class JwtResponse {
     private String refreshToken;
     private final String type = "Bearer";
     private List<Map<String, Role>> roles;
-    private boolean firstTimeLoggedIn;
-    private boolean createdByAdmin;
 
     public JwtResponse(Token tokenStore, User user) {
         this.token = tokenStore.getAccessToken();
@@ -31,7 +29,5 @@ public class JwtResponse {
         this.roles = user.getAuthorities().stream()
                 .map(grantedAuthority -> Map.of("authority", Role.valueOf(grantedAuthority.getAuthority())))
                 .collect(Collectors.toList());
-
-        this.firstTimeLoggedIn = user.isFirstTimeLoggedIn();
     }
 }
