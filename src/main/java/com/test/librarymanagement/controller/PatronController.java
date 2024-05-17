@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @AllArgsConstructor
 @RequestMapping("api/patrons/")
-@PreAuthorize("hasAuthority('LIBRARIAN')")
+@PreAuthorize("hasAuthority('ROLE_LIBRARIAN')")
 public class PatronController {
     private final PatronService patronService;
     private final WebSecurityUtil webSecurityUtil;
