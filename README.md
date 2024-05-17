@@ -27,7 +27,18 @@ VALUES ('librarian1@gmail.com', 'librarian1@gmail.com', '$2y$10$th/7DKBub2ffU81j
 
 if, you ran the query above and was successful, you can login into the application using your preferred http client with the credentials below;
 
+the signin url can be found on the authentication controller in the swagger documentation.
+
 {
   "username": "librarian1@gmail.com",
   "password": "password"
 }
+
+Upon successful authentication, a JWT is generated and returned to the client. The client includes this token in the Authorization header 
+of subsequent requests to access protected resources. The server validates the token on each request to ensure 
+the user is authenticated and authorized to access the requested resource.
+
+Every request in the application except endpoints in the authentication controller needs the user to be authenticated and authorized before 
+it can be accessed.
+
+Endpoints request are group in the controllers according to their actions and domain Objects.
