@@ -50,7 +50,7 @@ class AuthenticationServiceTest {
         Authentication authentication = new Authentication() {
             @Override
             public Collection<? extends GrantedAuthority> getAuthorities() {
-                return List.of(new SimpleGrantedAuthority(Role.LIBRARIAN.name()));
+                return List.of(new SimpleGrantedAuthority(Role.ROLE_LIBRARIAN.name()));
             }
 
             @Override
@@ -87,7 +87,7 @@ class AuthenticationServiceTest {
         User user = User.builder()
                 .id(1L)
                 .enabled(true)
-                .role(Role.LIBRARIAN)
+                .role(Role.ROLE_LIBRARIAN)
                 .username("librarian1@gmail.com")
                 .email("librarian1@gmail.com")
                 .password("password").build();
@@ -129,7 +129,7 @@ class AuthenticationServiceTest {
         User user = User.builder()
                 .id(1L)
                 .enabled(true)
-                .role(Role.LIBRARIAN)
+                .role(Role.ROLE_LIBRARIAN)
                 .username("librarian1@gmail.com")
                 .email("librarian1@gmail.com")
                 .password("password").build();
