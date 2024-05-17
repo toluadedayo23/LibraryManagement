@@ -13,7 +13,7 @@ public class PatronUpdateInput {
 
     private String lastName;
 
-    private String Address;
+    private String address;
 
     private String phonenumber;
 }
