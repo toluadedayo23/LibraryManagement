@@ -149,19 +149,6 @@ public class AuthJwtService {
         return extractUsername(token);
     }
 
-    public String validateToken(String token) {
-        if (tokenRepository.findByAccessToken(token).isEmpty()) {
-            throw new AuthenticationException("Invalid token") {
-                @Override
-                public String getMessage() {
-                    return super.getMessage();
-                }
-            };
-        }
-
-        return extractUsername(token);
-    }
-
     public void revokeToken(String token) {
         tokenRepository.deleteByAccessToken(token);
     }
