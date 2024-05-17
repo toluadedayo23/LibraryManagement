@@ -12,16 +12,16 @@ import lombok.experimental.SuperBuilder;
 public class PatronCreateInput {
 
     @NotNull
-    @Size(min = 4, max = 20, message = "First name cannot be less than 4 or more than 20 characters")
+    @Size(min = 2, max = 20, message = "First name cannot be less than 2 or more than 20 characters")
     private String firstName;
 
     @NotNull
-    @Size(min = 4, max = 20, message = "Last name cannot be less than 4 or more than 20 characters")
+    @Size(min = 2, max = 20, message = "Last name cannot be less than 2 or more than 20 characters")
     private String lastName;
 
     @NotNull
     @Size(min = 10, max = 70, message = "Address cannot be less than 10 or more than 70 characters")
-    private String Address;
+    private String address;
 
     @NotNull
     @Size(min = 11, max = 13, message = "Phone number cannot be less than 11 characters and more than 13 characters")
