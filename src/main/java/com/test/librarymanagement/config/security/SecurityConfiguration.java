@@ -26,12 +26,12 @@ public class SecurityConfiguration {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                .cors().and() //TODO:: use new methods
-                .csrf()      //TODO: use new methods
+                .cors().and()
+                .csrf()
                 .disable()
-                .authorizeHttpRequests()   //TODO: use new methods
+                .authorizeHttpRequests()
                 .requestMatchers(
-                        "/api/v1/auth/**",
+                        "/api/auth/**",
                         "/v2/api-docs",
                         "/v3/api-docs",
                         "/v3/api-docs/**",
@@ -44,20 +44,19 @@ public class SecurityConfiguration {
                         "/swagger-ui.html",
                         "swagger-ui/index.html",
                         "/swagger-ui/**",
-                        "/api/v1/home/**",
                         "/actuator/**"
                 )
                 .permitAll()
                 .anyRequest()
                 .authenticated()
-                .and()   //TODO: use new methods
-                .sessionManagement()    //TODO: use new methods
+                .and()
+                .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-                .and()    //TODO: use new methods
+                .and()
                 .authenticationProvider(authenticationProvider)
                 .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
-                .logout()   //TODO: use new methods
-                .logoutUrl("/api/v1/user/logout")
+                .logout()
+                .logoutUrl("/api/user/logout")
                 .addLogoutHandler(logoutHandler)
                 .logoutSuccessHandler((request, response, authentication) -> SecurityContextHolder.clearContext());
 
