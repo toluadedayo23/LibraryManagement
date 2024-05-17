@@ -43,9 +43,6 @@ public class User implements UserDetails {
     @Enumerated(EnumType.STRING)
     private Role role;
 
-    @Builder.Default
-    private boolean firstTimeLoggedIn = true;
-
     @CreationTimestamp
     private LocalDateTime createdAt;
 
