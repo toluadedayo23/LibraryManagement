@@ -4,10 +4,12 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
+import java.io.Serializable;
+
 @Data
 @SuperBuilder
 @NoArgsConstructor
-public class PatronDTO {
+public class PatronDTO implements Serializable {
 
     private Long id;
 
@@ -15,7 +17,7 @@ public class PatronDTO {
 
     private String lastName;
 
-    private String Address;
+    private String address;
 
     private String phonenumber;
 }
