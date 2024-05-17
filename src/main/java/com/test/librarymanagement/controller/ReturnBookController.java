@@ -9,23 +9,20 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @Slf4j
 @Validated
 @RestController
 @AllArgsConstructor
 @RequestMapping("api/return/")
-@PreAuthorize("hasAuthority('LIBRARIAN')")
+@PreAuthorize("hasAuthority('ROLE_LIBRARIAN')")
 public class ReturnBookController {
 
     private final BorrowingService borrowingService;
     private final WebSecurityUtil webSecurityUtil;
 
-    @PostMapping("{bookId}/patron/{patronId}")
+    @PutMapping("{bookId}/patron/{patronId}")
     public ResponseEntity<BorrowingRecordDTO> returnBook(
             @PathVariable(value = "bookId") @Min(value = 1) Long bookId,
             @PathVariable(value = "patronId") @Min(value = 1) Long patronId
