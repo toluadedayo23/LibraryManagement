@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @AllArgsConstructor
 @RequestMapping("api/books/")
-@PreAuthorize("hasAuthority('LIBRARIAN')")
+@PreAuthorize("hasAuthority('ROLE_LIBRARIAN')")
 public class BookController {
 
     private final BookService bookService;
