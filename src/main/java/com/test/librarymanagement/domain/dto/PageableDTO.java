@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 import org.springframework.data.domain.Page;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,7 +15,10 @@ import java.util.List;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuperBuilder
 @NoArgsConstructor
-public class PageableDTO<T> {
+public class PageableDTO<T extends Serializable> implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
     private int totalPages;
     private long totalElements;
     private boolean first;
