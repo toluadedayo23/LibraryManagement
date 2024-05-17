@@ -32,7 +32,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             @NonNull HttpServletResponse response,
             @NonNull FilterChain filterChain
     ) throws ServletException, IOException {
-        if (request.getServletPath().contains("/api/v1/auth") || request.getServletPath().contains("/api/v1/home")) {
+        if (request.getServletPath().contains("/api/auth")) {
             filterChain.doFilter(request, response);
             return;
         }
@@ -41,7 +41,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         final String jwt;
         final String username;
         if (authHeader == null || !authHeader.startsWith("Bearer ")) {
-            if(request.getServletPath().startsWith("/api/v1")) {
+            if(request.getServletPath().startsWith("/api/books") || request.getServletPath().startsWith("/api/patrons") || request.getServletPath().startsWith("/api/borrow") || request.getServletPath().startsWith("/api/return")) {
                 this.returnErrorMessageWhenJWTEmpty(response);
                 return;
             }
@@ -59,13 +59,6 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
         if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
             User userDetails = this.userDetailsService.loadByUsername(username);
-
-
-            if (userDetails.isFirstTimeLoggedIn() && !request.getRequestURI().contains("first-time-login-change-password") && !request.getRequestURI().contains("refresh")) {
-                this.returnErrorMessage(response);
-                return;
-            }
-
             try{
 
                 if (jwtService.isTokenValid(jwt, userDetails)) {
@@ -86,16 +79,10 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         filterChain.doFilter(request, response);
     }
 
-    private void returnErrorMessage(HttpServletResponse response) throws IOException {
-        response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-        response.setContentType("application/json");
-        response.getWriter().write("{\"message\":\"Proceed to change password\",\"firstTimeLoggedIn\":true, \"createdByAdmin\": true}");
-    }
-
     private void returnErrorMessageWhenJWTEmpty(HttpServletResponse response) throws IOException {
         response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
         response.setContentType("application/json");
-        response.getWriter().write("{\"message\":\"Authorization token is missing. Please include a valid authorization token in the request header\" ");
+        response.getWriter().write("{\"error\":\"Authorization token is missing. Please include a valid authorization token in the request header\" } ");
     }
 
     private void handleJwtException(Exception exception, HttpServletResponse response) throws IOException {
@@ -112,8 +99,6 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             case "SignatureException" -> "JWT token signature is invalid";
             default -> "Invalid JWT token";
         };
-
-//        response.getWriter().write("{\"error\": \"" + errorMessage + "\"}");
         response.getWriter().write(String.format("{ \"error\":  \"%s\" }", errorMessage));
     }
 
