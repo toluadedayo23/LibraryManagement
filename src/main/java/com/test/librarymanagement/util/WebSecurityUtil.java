@@ -29,7 +29,7 @@ public class WebSecurityUtil {
                 .role(principal.getAuthorities()
                         .stream().map(authority -> Role.valueOf(authority.getAuthority()))
                         .findFirst()
-                        .orElse(Role.LIBRARIAN)
+                        .orElse(Role.ROLE_LIBRARIAN)
                 ).build()
         );
     }
@@ -46,10 +46,6 @@ public class WebSecurityUtil {
         if (getUser().isPresent())
             return String.valueOf(getUser().get().getId());
         return "unknown";
-    }
-
-    public Role getUserRole(){
-        return getUserOrElseThrow().getRole();
     }
 
 }
