@@ -28,7 +28,7 @@ public class Patron {
 
     private String lastName;
 
-    private String Address;
+    private String address;
 
     private String phonenumber;
 
