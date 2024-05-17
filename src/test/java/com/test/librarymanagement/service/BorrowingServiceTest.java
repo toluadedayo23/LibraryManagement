@@ -64,7 +64,7 @@ class BorrowingServiceTest {
                 .id(patronId)
                 .firstName("first")
                 .lastName("Last")
-                .Address("Lagos 1")
+                .address("Lagos 1")
                 .phonenumber("08089765376")
                 .build();
 
@@ -115,7 +115,7 @@ class BorrowingServiceTest {
                 .id(patronId)
                 .firstName("first")
                 .lastName("Last")
-                .Address("Lagos 1")
+                .address("Lagos 1")
                 .phonenumber("08089765376")
                 .build();
 
@@ -158,7 +158,7 @@ class BorrowingServiceTest {
                 .id(patronId)
                 .firstName("first")
                 .lastName("Last")
-                .Address("Lagos 1")
+                .address("Lagos 1")
                 .phonenumber("08089765376")
                 .build();
 
